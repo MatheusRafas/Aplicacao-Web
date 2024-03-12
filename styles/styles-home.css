@@ -1,0 +1,36 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#cabecalho{
+    color: white;
+    text-align: center;
+    background-color: #6C7A8C;
+    border-radius: 2px;
+}
+
+#topicos{
+    margin: 9px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 35px;
+    background-color: #D5E2F2;
+}
+
+footer{
+    color: white;
+    background-color: #6C7A8C;
+    text-align: center;
+    margin-bottom: 0px;
+    padding: 15px;
+}
+
+footer > p{
+    margin-bottom: 0px;
+}
+
+footer a{
+    text-decoration: none;
+}
