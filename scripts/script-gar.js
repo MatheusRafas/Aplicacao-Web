@@ -1,5 +1,5 @@
-// Definição da classe Vehicle
-class Vehicle {
+// Definição da classe veiculo
+class veiculo {
     constructor(model, year, brand) {
         this.model = model;
         this.year = year;
@@ -7,8 +7,8 @@ class Vehicle {
     }
 }
 
-// Definição da classe Car, que herda de Vehicle
-class Car extends Vehicle {
+// Definição da classe Car, que herda de veiculo
+class Car extends veiculo {
     constructor(model, year, brand, doors) {
         super(model, year, brand);
         if (doors < 2 || doors > 4) {
@@ -18,8 +18,8 @@ class Car extends Vehicle {
     }
 }
 
-// Definição da classe Motorcycle, que herda de Vehicle
-class Motorcycle extends Vehicle {
+// Definição da classe Motorcycle, que herda de veiculo
+class Motorcycle extends veiculo {
     constructor(model, year, brand, wheels, passengers) {
         super(model, year, brand);
         if (wheels !== 2) {
@@ -33,7 +33,7 @@ class Motorcycle extends Vehicle {
     }
 }
 
-document.getElementById('vehicleForm').addEventListener('submit', function(event) {
+document.getElementById('veiculoForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
     const model = document.getElementById('model').value;
@@ -43,55 +43,55 @@ document.getElementById('vehicleForm').addEventListener('submit', function(event
     const wheels = parseInt(document.getElementById('wheels').value);
     const passengers = parseInt(document.getElementById('passengers').value);
 
-    let vehicle;
+    let veiculo;
 
     try {
         if (doors >= 2 && doors <= 4) {
-            vehicle = new Car(model, year, brand, doors);
+            veiculo = new Car(model, year, brand, doors);
         } else if (wheels === 2 && passengers >= 1 && passengers <= 2) {
-            vehicle = new Motorcycle(model, year, brand, wheels, passengers);
+            veiculo = new Motorcycle(model, year, brand, wheels, passengers);
         } else {
             throw new Error('Veículo não atende aos critérios de carros ou motocicletas.');
         }
 
         // Exibir os dados do veículo para o usuário
-        displayVehicleInfo(vehicle);
+        displayveiculoInfo(veiculo);
 
         // Exibir mensagem específica sobre o tipo de veículo cadastrado
-        displayVehicleType(vehicle);
+        displayveiculoType(veiculo);
 
-        const jsonData = JSON.stringify(vehicle);
+        const jsonData = JSON.stringify(veiculo);
 
         // Função para criar e salvar o arquivo JSON localmente
         saveJSON(jsonData);
 
         alert('Veículo cadastrado com sucesso!');
-        document.getElementById('vehicleForm').reset();
+        document.getElementById('veiculoForm').reset();
     } catch (error) {
         alert(error.message);
     }
 });
 
 // Função para exibir os dados do veículo para o usuário
-function displayVehicleInfo(vehicle) {
-    const infoDiv = document.getElementById('vehicleInfo');
+function displayveiculoInfo(veiculo) {
+    const infoDiv = document.getElementById('veiculoInfo');
     infoDiv.innerHTML = `
         <h2>Dados do Veículo:</h2>
-        <p><strong>Modelo:</strong> ${vehicle.model}</p>
-        <p><strong>Ano de Fabricação:</strong> ${vehicle.year}</p>
-        <p><strong>Marca:</strong> ${vehicle.brand}</p>
-        ${vehicle.doors ? `<p><strong>Quantidade de Portas:</strong> ${vehicle.doors}</p>` : ''}
-        ${vehicle.wheels ? `<p><strong>Rodas:</strong> ${vehicle.wheels}</p>` : ''}
-        ${vehicle.passengers ? `<p><strong>Passageiros:</strong> ${vehicle.passengers}</p>` : ''}
+        <p><strong>Modelo:</strong> ${veiculo.model}</p>
+        <p><strong>Ano de Fabricação:</strong> ${veiculo.year}</p>
+        <p><strong>Marca:</strong> ${veiculo.brand}</p>
+        ${veiculo.doors ? `<p><strong>Quantidade de Portas:</strong> ${veiculo.doors}</p>` : ''}
+        ${veiculo.wheels ? `<p><strong>Rodas:</strong> ${veiculo.wheels}</p>` : ''}
+        ${veiculo.passengers ? `<p><strong>Passageiros:</strong> ${veiculo.passengers}</p>` : ''}
     `;
 }
 
 // Função para exibir mensagem sobre o tipo de veículo cadastrado
-function displayVehicleType(vehicle) {
-    const typeDiv = document.getElementById('vehicleType');
-    if (vehicle instanceof Car) {
+function displayveiculoType(veiculo) {
+    const typeDiv = document.getElementById('veiculoType');
+    if (veiculo instanceof Car) {
         typeDiv.textContent = 'Foi cadastrado um carro.';
-    } else if (vehicle instanceof Motorcycle) {
+    } else if (veiculo instanceof Motorcycle) {
         typeDiv.textContent = 'Foi cadastrada uma motocicleta.';
     } else {
         typeDiv.textContent = 'Tipo de veículo não reconhecido.';
@@ -105,7 +105,7 @@ function saveJSON(jsonData) {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'vehicle.json';
+    a.download = 'veiculo.json';
     document.body.appendChild(a);
     a.click();
 
