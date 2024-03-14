@@ -9,11 +9,22 @@ body{
     border-radius: 2px;
 }
 
+#cabecalho > a{
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+#cabecalho > a:hover{
+    color: #6C7A8C;
+    background-color: #dcccbf81;
+    border-radius: 5px;
+}
+
 #corpo{
-    margin: 9px; 
     justify-content: center;
     gap: 20px;
-    padding: 5px;
+    padding: 8px;
     background-color: #D5E2F2;
 }
 
