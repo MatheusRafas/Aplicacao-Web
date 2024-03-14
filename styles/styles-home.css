@@ -10,12 +10,13 @@ body{
 }
 
 #topicos{
-    margin: 9px; 
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    flex: 1;
     gap: 20px;
-    padding: 35px;
+    padding: 8px;
     background-color: #D5E2F2;
 }
 
